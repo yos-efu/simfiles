@@ -1,0 +1,295 @@
+/* Mobile Enhancement */
+html { 
+    -webkit-text-size-adjust: none;
+}
+@-ms-viewport { 
+    width: device-width; 
+}
+
+
+html, body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Comfortaa", Cursive;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    color: #202020;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    display: block;
+    z-index: -1;
+    background-color: #fdfdfd;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Comfortaa";
+    font-weight: 300;
+}
+
+p a {
+    border-bottom: 1px dotted #909090;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#column_index,
+#pack,
+#intro {
+    position: relative;
+    margin: .5em;
+}
+
+#header {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+#header h1,
+#header p {
+    margin: .5em;
+}
+
+#column_index #header h1 {
+    font-size: 5em;
+}
+
+#pack #header .banner {
+    margin: 2em 0;
+}
+
+#pack #header h1,
+#intro #header h1 {
+    font-size: 3em;
+}
+
+#header p {
+    font-size: 1.5em;
+}
+
+.group {
+    position: relative;
+    float: left;
+}
+
+.group > .description h2 {
+    font-size: 3em;
+    margin: 1em 0 0 0;
+    text-transform: lowercase;
+}
+
+.group > .description h3 {
+    font-weight: 100;
+    font-size: 1.5em;
+    margin: .5em 0 2em 0;
+}
+
+.item {
+    max-width: 512px;
+    margin: 0 auto;
+}
+
+.item:target {
+    margin-top: -8em;
+    padding-top: 8em;
+}
+
+.item:target > * {
+    background-color: #ffffbf;
+    outline: 1em solid #ffffbf;
+}
+
+.item > .description h4 {
+    font-size: 1.5em;
+    margin: .5em;
+}
+
+.item > .description p {
+    margin: 0;
+}
+
+.item > .description p:last-child {
+    margin-bottom: 2em;
+}
+
+#songs,
+#packs {
+    display: table;
+    margin: 2em auto 0 auto;
+    max-width: 1280px;
+}
+
+#songs li,
+#packs li {
+    display: table-row;
+}
+
+#songs li > div,
+#songs .difficulty,
+#packs li > div,
+#packs .difficulty {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#songs .metadata,
+#packs .metadata {
+    padding: 1em;
+}
+
+#songs .difficulty,
+#packs .difficulty {
+    width: 3em;
+}
+
+.SN {
+    color: purple;
+}
+
+.SE, .DE {
+    color: green;
+}
+
+.SM, .DM {
+    color: olive;
+}
+
+.SH, .DH {
+    color: red;
+}
+
+.SX, .DX {
+    color: blue;
+    font-weight: bold;
+}
+
+.S-Edit, .D-Edit {
+    color: gray;
+}
+
+.header .S-Edit, .header .D-Edit {
+    font-size: .6em;
+    width: 5em !important;
+}
+
+/* Only show the dotted underline for songs, not the header */
+.song .difficulty.has-description span {
+    border-bottom: 1px dotted gray;
+}
+
+/* Show the cursor for both songs and the header */
+.difficulty.has-description span {
+    cursor: help;
+}
+
+.difficulty.empty {
+    font-weight: normal;
+    color: lightgray;
+}
+
+.difficulty.empty:after {
+    content: "\2014";
+}
+
+.note {
+    display: block;
+    margin: 1em;
+    font-size: .75em;
+}
+
+/* Column sizing */
+
+@media screen and (min-width: 1620px) {
+    .group {
+        width: 31.333333333333%;
+        margin: 1%;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1620px) {
+    .group {
+        width: 46%;
+        margin: 2%;
+    }
+
+    .group:last-of-type {
+        float: none;
+        clear: left;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .group {
+        width: 100%;
+    }
+
+    #songs,
+    #songs li,
+    #songs li > div {
+        display: block;
+    }
+
+    #songs li {
+        margin-top: 2em;
+    }
+
+    #songs .metadata {
+        padding: 0;
+    }
+
+    #songs .metadata h2 {
+        margin-bottom: 0;
+    }
+
+    #songs .header {
+        display: none;
+    }
+
+    #songs .charts {
+        margin: 1em auto;
+    }
+
+    #songs .difficulty {
+        display: inline-block;
+        width: 2em;
+    }
+    
+}
+
+/* Font size adjustments on smaller devices */
+
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
+    }
+
+    #header h1 {
+        font-size: 4em;
+    }
+
+    .banner img {
+        width: 88vw;
+    }
+}
