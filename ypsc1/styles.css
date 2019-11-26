@@ -1,0 +1,228 @@
+/* Mobile Enhancement */
+html { 
+    -webkit-text-size-adjust: none;
+}
+@-ms-viewport { 
+    width: device-width; 
+}
+
+
+/* The entire page */
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Comfortaa", Cursive;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    color: #202020;
+}
+
+
+/* Used for the song list */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+/* Hyperlink color */
+a {
+    color: teal;
+}
+
+
+.note {
+    display: block;
+    margin: 1em;
+    font-size: .75em;
+}
+
+
+/* Format the Table */
+#column_index,
+#pack {
+    position: relative;
+    margin: .5em;
+}
+#header {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+#header h1,
+#header p {
+    margin: .5em;
+}
+#column_index #header h1 {
+    font-size: 5em;
+}
+#pack #header .banner {
+    margin: 2em 0;
+    /*padding-bottom: 1em;*/
+}
+#pack #header h1 {
+    font-size: 3em;
+}
+#header p {
+    font-size: 1.5em;
+}
+#pack #header a {
+    color: teal;
+}
+
+#downloads,
+#songs {
+    display: table;
+    margin: 2em auto 0 auto;
+    max-width: 1280px;
+}
+#downloads li,
+#songs li {
+    display: table-row;
+}
+#downloads li > div,
+#songs li > div,
+#songs .difficulty {
+    display: table-cell;
+    vertical-align: middle;
+}
+#songs .metadata {
+    text-align: left;
+    padding: 1em;
+}
+#songs .difficulty {
+    width: 3em;
+}
+#songs .difficulty span {
+    cursor: help;
+}
+
+
+/* Per song */
+.song .metadata {
+    vertical-align: middle;
+    text-align-last: 5px;
+}
+
+/* Banner */
+.song .banner img {
+    width: 418px;
+    height: 164px;
+    vertical-align: bottom;
+}
+
+/* Boss Song */
+.song .metadata span {
+    color: #A6000E;
+}
+
+/* Title */
+.song .metadata t {
+    font-size: 1.5em;
+}
+/* Subtitle */
+.song .metadata e {
+    font-size: 1em;
+}
+/* Artist */
+.song .metadata r {
+    font-size: 1.25em;
+}
+
+/* Foreign Characters */
+.song .metadata f {
+    border-bottom: 1px dotted gray;
+    cursor: help;
+}
+
+/* BPM */
+/* Changes */
+.song changingBPM {
+    color: orange;
+    font-weight: bold;
+}
+/* Unknown */
+.song unknownBPM {
+    color: red;
+    font-weight: bold;
+}
+
+/* Length */
+/* Long */
+.song long {
+    color: orange;
+    font-weight: bold;
+    cursor: help;
+    border-bottom: 1px dotted gray;
+}
+/* Marathon */
+.song marathon {
+    color: #A6000E;
+    font-weight: bold;
+    cursor: help;
+    border-bottom: 1px dotted gray;
+}
+
+/* Meter */
+.song .difficulty.has-description span {
+    border-bottom: 1px dotted gray;
+}
+.difficulty.empty {
+    font-weight: normal;
+    color: lightgray;
+}
+.difficulty.empty:after {
+    content: "\2014";
+}
+
+
+/* Difficulty Colors */
+.SN {
+    color: purple;
+}
+.SE, .DE {
+    color: green;
+}
+.SM, .DM {
+    color: olive;
+}
+.SH, .DH {
+    color: red;
+}
+.SX, .DX {
+    color: #0390FC;
+}
+.S-Edit, .D-Edit {
+    color: gray;
+    font-weight: bold;
+}
+.header .S-Edit, .header .D-Edit {
+    font-size: .6em;
+    width: 5em !important;
+}
+
+
+/* Font size adjustments on smaller devices */
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
+    }
+
+    #header h1 {
+        font-size: 4em;
+    }
+
+    .banner img {
+        width: 88vw;
+    }
+}
