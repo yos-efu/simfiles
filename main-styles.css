@@ -8,6 +8,9 @@ html {
 
 
 html, body {
+    background: linear-gradient( rgb( 75, 75, 75 ), rgb( 50, 50, 50 ), rgb( 0, 0, 0 ) );
+    background-size: contain;
+    background-attachment: fixed;
     position: relative;
     margin: 0;
     padding: 0;
@@ -18,7 +21,7 @@ html, body {
     font-weight: 300;
     font-size: 16px;
     text-align: center;
-    color: #202020;
+    color: white;
 }
 
 canvas {
