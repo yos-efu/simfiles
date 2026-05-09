@@ -194,7 +194,12 @@ a {
     }
 
     .banner img {
-        width: 88vw;
+        width: 209px;
+        height: auto;
+    }
+
+    #mainBanner {
+        width: 418px;
         height: auto;
     }
 }
