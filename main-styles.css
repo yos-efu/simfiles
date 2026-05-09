@@ -7,7 +7,7 @@ html {
 }
 
 
-html, body {
+html, body, .header {
     background: linear-gradient( rgb( 75, 75, 75 ), rgb( 50, 50, 50 ), rgb( 0, 0, 0 ) );
     background-size: contain;
     background-attachment: fixed;
@@ -17,8 +17,10 @@ html, body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    font-family: "Comfortaa", Cursive;
-    font-weight: 300;
+    font-family: "Outfit Regular", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     font-size: 16px;
     text-align: center;
     color: white;
@@ -37,46 +39,10 @@ a {
     text-decoration: inherit;
 }
 
-h1, h2, h3, h4 {
-    font-family: "Comfortaa";
-    font-weight: 300;
-}
-
 p a {
     border-bottom: 1px dotted #909090;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#column_index,
-#pack,
-#intro {
-    position: relative;
-    margin: .5em;
-}
-
-#header {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-#header h1,
-#header p {
-    margin: .5em;
-}
-
-#column_index #header h1 {
-    font-size: 5em;
-}
-
-#pack #header .banner {
-    margin: 2em 0;
-}
-
-#pack #header h1,
 #intro #header h1 {
     font-size: 3em;
 }
@@ -85,134 +51,44 @@ ul {
     font-size: 1.5em;
 }
 
-.group {
-    position: relative;
-    float: left;
-}
 
-.group > .description h2 {
-    font-size: 3em;
-    margin: 1em 0 0 0;
-    text-transform: lowercase;
-}
 
-.group > .description h3 {
-    font-weight: 100;
-    font-size: 1.5em;
-    margin: .5em 0 2em 0;
-}
-
-.item {
-    max-width: 512px;
-    margin: 0 auto;
-}
-
-.item:target {
-    margin-top: -8em;
-    padding-top: 8em;
-}
-
-.item:target > * {
-    background-color: #ffffbf;
-    outline: 1em solid #ffffbf;
-}
-
-.item > .description h4 {
-    font-size: 1.5em;
-    margin: .5em;
-}
-
-.item > .description p {
-    margin: 0;
-}
-
-.item > .description p:last-child {
-    margin-bottom: 2em;
-}
-
-#songs,
 #packs {
-    display: table;
-    margin: 2em auto 0 auto;
-    max-width: 1280px;
-}
-
-#songs li,
-#packs li {
-    display: table-row;
-}
-
-#songs li > div,
-#songs .difficulty,
-#packs li > div,
-#packs .difficulty {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-#songs .metadata,
-#packs .metadata {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2em;
+    margin: 2em auto 2em auto;
+    max-width: 640px;
     padding: 1em;
 }
 
-#songs .difficulty,
-#packs .difficulty {
-    width: 3em;
+#packs li {
+    display: grid;
+    align-content: center;
 }
 
-.SN {
-    color: purple;
+#packs li > div {
+    display: grid;
+    align-content: center;
 }
 
-.SE, .DE {
-    color: green;
+.packs strong {
+    font-style: bold;
 }
 
-.SM, .DM {
-    color: olive;
-}
-
-.SH, .DH {
-    color: red;
-}
-
-.SX, .DX {
-    color: blue;
-    font-weight: bold;
-}
-
-.S-Edit, .D-Edit {
-    color: gray;
-}
-
-.header .S-Edit, .header .D-Edit {
-    font-size: .6em;
-    width: 5em !important;
-}
-
-/* Only show the dotted underline for songs, not the header */
-.song .difficulty.has-description span {
+ddrxscale {
     border-bottom: 1px dotted gray;
 }
 
-/* Show the cursor for both songs and the header */
-.difficulty.has-description span {
-    cursor: help;
+ddrxscale::after {
+    padding-left: 1px;
+    content: "(X Scale)";
 }
 
-.difficulty.empty {
-    font-weight: normal;
-    color: lightgray;
-}
-
-.difficulty.empty:after {
-    content: "\2014";
-}
-
-.note {
-    display: block;
-    margin: 1em;
-    font-size: .75em;
+img {
+    width: 100%;
+    max-width: 313.5px;
+    height: auto;
 }
 
 /* Column sizing */
@@ -242,35 +118,10 @@ ul {
         width: 100%;
     }
 
-    #songs,
-    #songs li,
-    #songs li > div {
-        display: block;
-    }
-
-    #songs li {
-        margin-top: 2em;
-    }
-
-    #songs .metadata {
-        padding: 0;
-    }
-
-    #songs .metadata h2 {
-        margin-bottom: 0;
-    }
-
-    #songs .header {
-        display: none;
-    }
-
-    #songs .charts {
-        margin: 1em auto;
-    }
-
-    #songs .difficulty {
-        display: inline-block;
-        width: 2em;
+    #packs,
+    #packs li,
+    #packs li > div {
+        display: grid;
     }
     
 }
@@ -292,7 +143,7 @@ ul {
         font-size: 4em;
     }
 
-    .banner img {
+    img {
         width: 88vw;
     }
 }
