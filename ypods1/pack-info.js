@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bannerDiv.appendChild(img);
         li.appendChild(bannerDiv);
 
-        if (window.innerWidth > 800) {
+        if (window.innerWidth < 800) {
             img.style.scale = '0.5';
         }
 
