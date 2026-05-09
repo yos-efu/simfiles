@@ -192,6 +192,11 @@ a {
     body {
         font-size: 2vw;
     }
+
+    .banner img {
+        width: 88vw;
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -205,5 +210,6 @@ a {
 
     .banner img {
         width: 88vw;
+        height: auto;
     }
 }
