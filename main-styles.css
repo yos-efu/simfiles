@@ -17,10 +17,8 @@ html, body, .header {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    font-family: "Outfit Regular", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
     font-size: 16px;
     text-align: center;
     color: white;
@@ -55,10 +53,10 @@ p a {
 
 #packs {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2em;
     margin: 2em auto 2em auto;
-    max-width: 640px;
+    max-width: 1280px;
     padding: 1em;
 }
 
@@ -131,6 +129,11 @@ img {
 @media screen and (max-width: 800px) {
     body {
         font-size: 2vw;
+    }
+
+    #packs {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 2em;
     }
 }
 
