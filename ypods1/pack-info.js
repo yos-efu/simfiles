@@ -165,13 +165,13 @@ const diffs = ['SN', 'SE', 'SM', 'SH', 'SX'];
 document.addEventListener('DOMContentLoaded', () => {
     const topText = document.createElement('a');
     topText.textContent = '⮜ Go Back'
-    topText.style.position = "absolute";
-    topText.style.top = "5px";
-    topText.style.left = "20px";
-    topText.style.zIndex = "1000";
-    topText.style.fontSize = "1.5em";
-    topText.style.fontWeight = "bold";
-    topText.style.cursor = "pointer";
+    topText.style.position = 'absolute';
+    topText.style.top = '5px';
+    topText.style.left = '20px';
+    topText.style.zIndex = '1000';
+    topText.style.fontSize = '1.5em';
+    topText.style.fontWeight = 'bold';
+    topText.style.cursor = 'pointer';
     topText.addEventListener('click', () => {
         window.location.href = '../index.html';
     });
@@ -199,6 +199,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (window.innerWidth <= 800) {
             img.style.width = '209px';
+
+            img.style.position = 'relative';
+            img.style.top = '10px';
+            img.style.border = `2px solid ${songColors[songID]}`
+
+            // display BPM and length under the banner on mobile since the metadata is hidden
+            // and that info is kinda sorta important to have regardless of screen size
+            const bpmLen = document.createElement('div');
+            bpmLen.style.fontWeight = 500;
+            bpmLen.style.position = 'relative';
+            bpmLen.style.top = '-7px';
+            bpmLen.style.zIndex = '1000';
+            bpmLen.style.fontSize = '1.1em';
+            bpmLen.style.backgroundImage = 'linear-gradient( rgba(0, 0, 0, 0), rgb( 0, 0, 0 ) )';
+
+            // bpm first
+            const bpmLabel = document.createElement('bpmLabel');
+            bpmLabel.textContent = 'BPM: ';
+            bpmLen.appendChild(bpmLabel);
+            // first, check if minBPM and maxBPM differ. If they do, display them as a range.
+            if (!(minBPM === maxBPM)) {
+                const bpmVal = document.createElement('changingBPM');
+                bpmVal.textContent += `${minBPM} - ${maxBPM}`;
+                bpmLabel.appendChild(bpmVal);
+            } else { // if they don't, check if they're both -1, signifying 'random' BPM. If so, display that instead. Otherwise, just display the BPM as is.
+                if (minBPM === -1 && maxBPM === -1) {
+                    const bpmNope = document.createElement('unknownBPM');
+                    bpmLabel.textContent += '? ? ?';
+                    bpmLabel.appendChild(bpmNope);
+                } else {
+                    bpmLabel.textContent += `${minBPM}`;
+                }
+            }
+
+            // song length second
+            const lenLabel = document.createElement('lenLabel');
+            lenLabel.textContent = 'Length: ';
+            const lenVal = document.createElement('lenVal');
+
+            const minutes = Math.floor(len / 60);   // calculate minutes
+            const seconds = len % 60;               // calculate seconds
+
+            lenVal.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+            // if the song is at least 150 seconds long, add a warning that it may count as 2 rounds in some themes
+            if (len >= 150) {
+                lenVal.style.cursor = 'help';
+                lenVal.style.fontWeight = 'bold';
+                lenVal.style.borderBottom = '1px dotted gray';
+                lenVal.style.color = 'orange';
+                lenVal.title = 'This song may count as 2 rounds in some themes.';
+
+                if (len >= 300) { // if the song is at least 300 seconds long, make the warning even more severe
+                    lenVal.style.color = 'red';
+                    lenVal.title = 'This song may count as 3 rounds in some themes.';
+                }
+            }
+            lenLabel.appendChild(lenVal);
+            bpmLen.appendChild(document.createTextNode(' | '));
+            bpmLen.appendChild(lenLabel);
+            bannerDiv.appendChild(bpmLen);
+
         }
 
 
