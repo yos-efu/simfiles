@@ -1,6 +1,7 @@
 const packNames = [
     // group, [ID, isGIFBanner Name, Number of Songs, Min Difficulty, Max Difficulty, isDDRXScale, Link, isAsFiveGrains]
     ['Made by Me :D',
+        ['YSD', false, 'YOSEFU\'S Simfile Depository (Ongoing)', '100+', 1, 20, true, 'https://zenius-i-vanisher.com/v5.2/viewsimfilecategory.php?categoryid=1612', false],
         ['YPODS1', false, 'Yosefu\'s Pile of Dance Simfiles', 30, 1, 22, false, '', false],
     ],
     ['Collab Packs: OutFox Serenity',
@@ -11,6 +12,9 @@ const packNames = [
         ['fm23', false, 'FEARMIX 2023', 139, 1, 666, true, 'https://stepmaniaonline.net/pack/1616', false],
         ['fm24', false, 'FEARMIX 2024', 123, 1, 19, true, 'https://stepmaniaonline.net/pack/1617', false],
         ['fm25', false, 'FEARMIX 2025', 86, 1, 666, true, 'https://stepmaniaonline.net/pack/9261', false],
+        ['hp1', false, 'Hard Pack 1', 31, 4, 20, true, 'https://drive.google.com/file/d/1BII44c5_RE2Emn8xWbAHQejQlb2xTQA4/view', false],
+        ['hp2', false, 'Hard Pack 2 + Sidequest', 28, 4, 20, true, 'https://drive.google.com/file/d/18RLtLdpjuHL7OlFmhzzpH82IngAxf3W2/view', false],
+        // ['vcc1', false, 'VC Classic Challenge Pack Vol 1', 77, 10, 19, true, 'https://drive.google.com/file/d/1EA9tqjiqd2YCdVRxZclc6dydCz7pKibA/view', false],
         ['zivsc22dc', false, 'Z-I-v Summer Contest 2022 Director\'s Cut', 111, 1, 19, true, 'https://stepmaniaonline.net/pack/4619', false],
     ],
     ['Collab Packs: Secret Santa and New Years',
@@ -51,9 +55,54 @@ document.addEventListener('DOMContentLoaded', () => {
         const groupName = document.createElement('p');
         groupName.textContent = `${group}`;
         groupDiv.appendChild(groupName);
+        groupDiv.style.placeSelf = 'center';
+        if (window.innerWidth > 1792) {
+            if (packs.length == 1) {
+                groupDiv.style.gridTemplateColumns = 'repeat(1, minmax(320px, 1fr)';
+            } else if (packs.length == 2) {
+                groupDiv.style.gridTemplateColumns = 'repeat(2, minmax(320px, 1fr)';
+            } else if (packs.length == 3) {
+                groupDiv.style.gridTemplateColumns = 'repeat(3, minmax(320px, 1fr)';
+            } else if (packs.length == 4)  {
+                groupDiv.style.gridTemplateColumns = 'repeat(4, minmax(320px, 1fr)';
+            } else {
+                groupDiv.style.gridTemplateColumns = 'repeat(5, minmax(320px, 1fr)';
+            }
+        } else if (window.innerWidth > 1360 && window.innerWidth <= 1792) {
+            if (packs.length == 1) {
+                groupDiv.style.gridTemplateColumns = 'repeat(1, minmax(320px, 1fr)';
+            } else if (packs.length == 2) {
+                groupDiv.style.gridTemplateColumns = 'repeat(2, minmax(320px, 1fr)';
+            } else if (packs.length == 3) {
+                groupDiv.style.gridTemplateColumns = 'repeat(3, minmax(320px, 1fr)';
+            } else {
+                groupDiv.style.gridTemplateColumns = 'repeat(4, minmax(320px, 1fr)';
+            }
+        } else if (window.innerWidth > 1024 && window.innerWidth <= 1360) {
+            if (packs.length == 1) {
+                groupDiv.style.gridTemplateColumns = 'repeat(1, minmax(320px, 1fr)';
+            } else if (packs.length == 2) {
+                groupDiv.style.gridTemplateColumns = 'repeat(2, minmax(320px, 1fr)';
+            } else{
+                groupDiv.style.gridTemplateColumns = 'repeat(3, minmax(320px, 1fr)';
+            }
+        } else if (window.innerWidth > 700 && window.innerWidth <= 1024) {
+            if (packs.length == 1) {
+                groupDiv.style.gridTemplateColumns = 'repeat(1, minmax(320px, 1fr)';
+            } else {
+                groupDiv.style.gridTemplateColumns = 'repeat(2, minmax(320px, 1fr)';
+            }
+        } else {
+            groupDiv.style.gridTemplateColumns = 'repeat(1, minmax(320px, 1fr)';
+        }
+        // console.log(`${packs.length}; ${packs.length % 3}`);
+
         packs.forEach(([id, isGIFBanner, name, num, minDiff, maxDiff, isDDRXScale, link, isAsFiveGrains]) => {
             const li = document.createElement('li');
             li.className = `pack${id}`;
+
+            const div = document.createElement('div');
+            div.className = `${id}Div`;
 
             const a = document.createElement('a');
             a.title = name;
@@ -65,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isAsFiveGrains) {
                     a.title += '\n(under the alias "Five Grains")';
                 }
-                a.title += '\n(will redirect to Stepmania Online)';
+                a.title += '\n(you\'ll be redirected)';
             }
 
             const img = document.createElement('img');
@@ -103,7 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
             li.appendChild(a);
             li.appendChild(p);
             li.appendChild(c);
-            groupDiv.appendChild(li);
+            div.appendChild(li);
+            groupDiv.appendChild(div);
         });
         ul.appendChild(groupDiv);
     });

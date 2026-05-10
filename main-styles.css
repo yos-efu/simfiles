@@ -76,7 +76,8 @@ p a {
 #packs li {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     padding: 1em;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -151,12 +152,6 @@ img {
     .group {
         width: 100%;
     }
-
-    #packs,
-    #packs li,
-    #packs li > div {
-        display: grid;
-    }
     
 }
 
@@ -168,8 +163,7 @@ img {
     }
 
     #packs {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 2em;
+        grid-template-columns: repeat(1, minmax(320px, 1fr));
     }
 }
 
